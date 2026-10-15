@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Constructora & Servicios de Construcción</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>ConstruAraya & Servicios de Construcción</title>
+    <!-- Traemos tipos de letra -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -41,7 +41,7 @@
             color: inherit;
         }
 
-        /* NAVBAR */
+        /* NAVBAR Y LOGO BANNER */
         header {
             position: fixed;
             top: 0;
@@ -53,21 +53,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 5%;
+            padding: 0.8rem 5%; /* Ajustado para dar espacio al logo */
         }
 
+        /* Contenedor del nuevo logo en imagen */
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--dark);
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
-        .logo span {
-            color: var(--primary);
+        .logo img {
+            height: 60px; /* Tamaño ideal para que se vea claro como banner superior */
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.3s;
+        }
+
+        .logo img:hover {
+            transform: scale(1.02); /* Pequeño efecto al pasar el mouse */
         }
 
         nav ul {
@@ -116,7 +119,7 @@
             text-align: center;
             color: #fff;
             padding: 0 1rem;
-            margin-top: 70px;
+            margin-top: 75px;
         }
 
         .hero-content {
@@ -326,10 +329,9 @@
             border-color: var(--primary);
         }
 
-        /* Botón dinámico de WhatsApp */
         #btnWhatsApp {
-            display: none; /* Se muestra solo cuando llenan los campos */
-            background-color: #25d366; /* Verde oficial de WhatsApp */
+            display: none; 
+            background-color: #25d366; 
             color: #fff;
             margin-top: 5px;
             text-align: center;
@@ -364,6 +366,9 @@
             nav ul {
                 display: none;
             }
+            .logo img {
+                height: 45px; /* Logo más pequeño en celular */
+            }
             .hero h1 {
                 font-size: 2.2rem;
             }
@@ -379,12 +384,12 @@
 </head>
 <body>
 
-    <!-- BARRA DE NAVEGACIÓN -->
+    <!-- BARRA DE NAVEGACIÓN Y LOGO -->
     <header>
-        <div class="logo">
-            <i class="fa-solid fa-helmet-safety" style="color: var(--primary);"></i>
-            CONSTRUCTORA<span>PRO</span>
-        </div>
+        <!-- Integración de la imagen plana del logo -->
+        <a href="#inicio" class="logo">
+            <img src="logo.jpg" alt="ConstruAraya Logo Oficial">
+        </a>
         <nav>
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
@@ -408,7 +413,7 @@
     <section id="servicios">
         <div class="section-title">
             <h2>Nuestros Servicios</h2>
-            <p>Soluciones profesionales adaptadas a cada etapa de tu obra</p>
+            <p>Soluciones integrales y profesionales adaptadas a cada etapa de tu obra</p>
         </div>
         <div class="services-grid">
             <div class="service-card">
@@ -430,6 +435,31 @@
                 <i class="fa-solid fa-ruler-combined"></i>
                 <h3>Diseño y Planos</h3>
                 <p>Te asesoramos técnicamente desde la planeación y estimación de materiales hasta la ejecución exacta.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-person-swimming"></i>
+                <h3>Construcción de Piscinas</h3>
+                <p>Diseño y construcción de piscinas a medida, áreas recreativas y jacuzzis con acabados de primera.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-snowflake"></i>
+                <h3>Aires Acondicionados</h3>
+                <p>Instalación, mantenimiento y reparación de equipos de aire acondicionado y sistemas de climatización.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Servicios Eléctricos</h3>
+                <p>Instalaciones eléctricas seguras, cableado estructurado, iluminación y tableros para hogares y comercios.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-warehouse"></i>
+                <h3>Portones Eléctricos</h3>
+                <p>Fabricación, automatización e instalación de portones eléctricos y sistemas de acceso seguro.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-faucet-drip"></i>
+                <h3>Fontanería Integral</h3>
+                <p>Instalación de redes de agua potable, drenajes, reparación de fugas, grifería y losa sanitaria.</p>
             </div>
         </div>
     </section>
@@ -483,7 +513,7 @@
                 </div>
                 <div class="info-item">
                     <i class="fa-solid fa-envelope"></i>
-                    <span>contacto@constructorapro.com</span>
+                    <span>contacto@construaraya.com</span>
                 </div>
                 <div class="info-item">
                     <i class="fa-solid fa-location-dot"></i>
@@ -505,7 +535,6 @@
                 </div>
                 <p class="helper-text">💡 Completa los campos para habilitar el botón de envío directo.</p>
                 
-                <!-- Enlace optimizado usando el dominio oficial wa.me -->
                 <a id="btnWhatsApp" href="#" target="_blank" class="btn">
                     <i class="fa-brands fa-whatsapp"></i> Enviar Mensaje por WhatsApp
                 </a>
@@ -515,10 +544,10 @@
 
     <!-- PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 Constructorapro. Todos los derechos reservados. Diseñado para profesionales de la construcción.</p>
+        <p>&copy; 2026 ConstruAraya. Todos los derechos reservados. Diseñado para profesionales de la construcción.</p>
     </footer>
 
-    <!-- SCRIPT ACTUALIZADO CON DOMINIO SEGURO -->
+    <!-- SCRIPT WHATSAPP -->
     <script>
         function actualizarEnlace() {
             const numeroWhatsApp = "50672693054";
@@ -529,8 +558,6 @@
 
             if (nombre !== "" && telefono !== "" && mensaje !== "") {
                 const texto = `Hola, mi nombre es *${nombre}*.\nMi teléfono es: *${telefono}*.\n\n*Detalles del proyecto:* \n${mensaje}`;
-                
-                // Usando el dominio oficial acortado wa.me (evita bloqueos de api.whatsapp.com)
                 const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
                 
                 btn.href = url;
