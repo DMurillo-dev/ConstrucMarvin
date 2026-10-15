@@ -41,36 +41,45 @@
             color: inherit;
         }
 
-        /* NAVBAR Y LOGO BANNER */
+        /* NAVBAR Y LOGO BANNER (AHORA RESTRINGIDO) */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            height: 90px; /* ALTURA FIJA PARA QUE NO CREZCA MÁS DE LA CUENTA */
             background: #ffffff;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 5%; /* Ajustado para dar espacio al logo */
+            padding: 0 5%;
         }
 
-        /* Contenedor del nuevo logo en imagen */
+        /* EL TRUCO DEL MARCO DE FOTOS */
         .logo {
+            position: relative;
+            height: 90px; /* Misma altura que la barra */
+            width: 280px; /* Ancho suficiente para el texto del logo */
             display: flex;
             align-items: center;
+            justify-content: flex-start;
+            overflow: hidden; /* MAGIA: CORTA TODO EL EXCESO QUE SE SALGA */
         }
 
         .logo img {
-            height: 60px; /* Tamaño ideal para que se vea claro como banner superior */
-            width: auto;
-            object-fit: contain;
+            position: absolute;
+            height: 170px; /* La imagen es gigante para eliminar el gris... */
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%); /* ...y la centramos perfectamente a la mitad */
+            mix-blend-mode: multiply; /* Fusiona el fondo de la imagen con la barra blanca */
             transition: transform 0.3s;
         }
 
         .logo img:hover {
-            transform: scale(1.02); /* Pequeño efecto al pasar el mouse */
+            transform: translateY(-50%) scale(1.05); /* Pequeño efecto al pasar el mouse */
         }
 
         nav ul {
@@ -119,7 +128,7 @@
             text-align: center;
             color: #fff;
             padding: 0 1rem;
-            margin-top: 75px;
+            margin-top: 90px; /* Justo el tamaño de la barra superior para que no choque */
         }
 
         .hero-content {
@@ -361,13 +370,23 @@
             color: #94a3b8;
         }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE (MÓVILES) */
         @media (max-width: 768px) {
             nav ul {
                 display: none;
             }
+            header {
+                height: 80px; /* Un poco más pequeña en móvil */
+            }
+            .logo {
+                height: 80px;
+                width: 200px;
+            }
             .logo img {
-                height: 45px; /* Logo más pequeño en celular */
+                height: 120px; /* Ajuste para que se vea bien en celular sin salirse */
+            }
+            .hero {
+                margin-top: 80px;
             }
             .hero h1 {
                 font-size: 2.2rem;
@@ -386,9 +405,8 @@
 
     <!-- BARRA DE NAVEGACIÓN Y LOGO -->
     <header>
-        <!-- Integración de la imagen plana del logo -->
         <a href="#inicio" class="logo">
-            <img src="logo.jpg" alt="ConstruAraya Logo Oficial">
+            <img src="https://i.postimg.cc/wMWTjSMx/logo.jpg" alt="ConstruAraya Logo Oficial">
         </a>
         <nav>
             <ul>
