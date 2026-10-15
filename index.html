@@ -9,6 +9,9 @@
     <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- LIBRERÍA DE ANIMACIONES (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         :root {
             --primary: #f59e0b; /* Amarillo construcción */
@@ -34,6 +37,7 @@
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden; /* Evita bordes blancos al animar */
         }
 
         a {
@@ -41,13 +45,13 @@
             color: inherit;
         }
 
-        /* NAVBAR Y LOGO BANNER (AHORA RESTRINGIDO) */
+        /* NAVBAR Y LOGO BANNER */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 90px; /* ALTURA FIJA PARA QUE NO CREZCA MÁS DE LA CUENTA */
+            height: 90px;
             background: #ffffff;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             z-index: 1000;
@@ -57,29 +61,28 @@
             padding: 0 5%;
         }
 
-        /* EL TRUCO DEL MARCO DE FOTOS */
         .logo {
             position: relative;
-            height: 90px; /* Misma altura que la barra */
-            width: 280px; /* Ancho suficiente para el texto del logo */
+            height: 90px;
+            width: 280px;
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            overflow: hidden; /* MAGIA: CORTA TODO EL EXCESO QUE SE SALGA */
+            overflow: hidden; 
         }
 
         .logo img {
             position: absolute;
-            height: 170px; /* La imagen es gigante para eliminar el gris... */
+            height: 170px;
             top: 50%;
             left: 0;
-            transform: translateY(-50%); /* ...y la centramos perfectamente a la mitad */
-            mix-blend-mode: multiply; /* Fusiona el fondo de la imagen con la barra blanca */
+            transform: translateY(-50%);
+            mix-blend-mode: multiply;
             transition: transform 0.3s;
         }
 
         .logo img:hover {
-            transform: translateY(-50%) scale(1.05); /* Pequeño efecto al pasar el mouse */
+            transform: translateY(-50%) scale(1.05);
         }
 
         nav ul {
@@ -128,7 +131,7 @@
             text-align: center;
             color: #fff;
             padding: 0 1rem;
-            margin-top: 90px; /* Justo el tamaño de la barra superior para que no choque */
+            margin-top: 90px;
         }
 
         .hero-content {
@@ -357,6 +360,31 @@
             margin-top: -5px;
         }
 
+        /* BOTÓN FLOTANTE WHATSAPP */
+        .whatsapp-flotante {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 2000;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .whatsapp-flotante:hover {
+            transform: scale(1.1);
+            background-color: #1ebe5d;
+            color: #fff;
+        }
+
         /* FOOTER */
         footer {
             background-color: var(--dark);
@@ -370,20 +398,20 @@
             color: #94a3b8;
         }
 
-        /* RESPONSIVE (MÓVILES) */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             nav ul {
                 display: none;
             }
             header {
-                height: 80px; /* Un poco más pequeña en móvil */
+                height: 80px;
             }
             .logo {
                 height: 80px;
                 width: 200px;
             }
             .logo img {
-                height: 120px; /* Ajuste para que se vea bien en celular sin salirse */
+                height: 120px;
             }
             .hero {
                 margin-top: 80px;
@@ -397,6 +425,13 @@
             }
             section {
                 padding: 4rem 5%;
+            }
+            .whatsapp-flotante {
+                width: 50px;
+                height: 50px;
+                font-size: 30px;
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -419,8 +454,8 @@
     </header>
 
     <!-- SECCIÓN INICIO -->
-    <section id="inicio" class="hero">
-        <div class="hero-content">
+    <section id="inicio" class="hero" data-aos="fade-in" data-aos-duration="1500">
+        <div class="hero-content" data-aos="zoom-in" data-aos-delay="300">
             <h1>Construimos tus sueños con <span>calidad y solidez</span></h1>
             <p>Especialistas en construcción de obra gris, remodelaciones integrales y diseño arquitectónico para hogares y negocios.</p>
             <a href="#contacto" class="btn">Solicita un Presupuesto</a>
@@ -429,52 +464,52 @@
 
     <!-- SECCIÓN SERVICIOS -->
     <section id="servicios">
-        <div class="section-title">
+        <div class="section-title" data-aos="fade-up">
             <h2>Nuestros Servicios</h2>
             <p>Soluciones integrales y profesionales adaptadas a cada etapa de tu obra</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fa-solid fa-house-chimney"></i>
                 <h3>Construcción Residencial</h3>
                 <p>Levantamos tu casa desde los cimientos hasta los acabados finales, garantizando seguridad y durabilidad.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <i class="fa-solid fa-hammer"></i>
                 <h3>Remodelaciones</h3>
                 <p>Transformamos espacios antiguos, cocinas, baños o ampliaciones completas con acabados modernos.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                 <i class="fa-solid fa-trowel-bricks"></i>
                 <h3>Obra Gris y Estructuras</h3>
                 <p>Especialistas en cimentaciones, muros de contención, columnas, losas y estructuras de concreto.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fa-solid fa-ruler-combined"></i>
                 <h3>Diseño y Planos</h3>
                 <p>Te asesoramos técnicamente desde la planeación y estimación de materiales hasta la ejecución exacta.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <i class="fa-solid fa-person-swimming"></i>
                 <h3>Construcción de Piscinas</h3>
                 <p>Diseño y construcción de piscinas a medida, áreas recreativas y jacuzzis con acabados de primera.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                 <i class="fa-solid fa-snowflake"></i>
                 <h3>Aires Acondicionados</h3>
                 <p>Instalación, mantenimiento y reparación de equipos de aire acondicionado y sistemas de climatización.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fa-solid fa-bolt"></i>
                 <h3>Servicios Eléctricos</h3>
                 <p>Instalaciones eléctricas seguras, cableado estructurado, iluminación y tableros para hogares y comercios.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <i class="fa-solid fa-warehouse"></i>
                 <h3>Portones Eléctricos</h3>
                 <p>Fabricación, automatización e instalación de portones eléctricos y sistemas de acceso seguro.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                 <i class="fa-solid fa-faucet-drip"></i>
                 <h3>Fontanería Integral</h3>
                 <p>Instalación de redes de agua potable, drenajes, reparación de fugas, grifería y losa sanitaria.</p>
@@ -484,26 +519,26 @@
 
     <!-- SECCIÓN PROYECTOS -->
     <section id="proyectos" style="background-color: #fff;">
-        <div class="section-title">
+        <div class="section-title" data-aos="fade-up">
             <h2>Proyectos Recientes</h2>
             <p>Una muestra de nuestro compromiso y trabajo en el campo</p>
         </div>
         <div class="projects-grid">
-            <div class="project-item">
+            <div class="project-item" data-aos="zoom-in" data-aos-delay="100">
                 <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Casa Residencial">
                 <div class="project-info">
                     <h4>Residencia Los Pinos</h4>
                     <p>Construcción desde Cero</p>
                 </div>
             </div>
-            <div class="project-item">
+            <div class="project-item" data-aos="zoom-in" data-aos-delay="200">
                 <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Remodelación Moderna">
                 <div class="project-info">
                     <h4>Remodelación Integral</h4>
                     <p>Diseño y Acabados</p>
                 </div>
             </div>
-            <div class="project-item">
+            <div class="project-item" data-aos="zoom-in" data-aos-delay="300">
                 <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Estructura Comercial">
                 <div class="project-info">
                     <h4>Local Comercial Central</h4>
@@ -515,11 +550,11 @@
 
     <!-- SECCIÓN CONTACTO -->
     <section id="contacto">
-        <div class="section-title">
+        <div class="section-title" data-aos="fade-up">
             <h2>Hablemos de tu Proyecto</h2>
             <p>Contáctanos hoy mismo y recibe una cotización personalizada</p>
         </div>
-        <div class="contact-container">
+        <div class="contact-container" data-aos="fade-up" data-aos-delay="200">
             <div class="info-column">
                 <div class="contact-info">
                     <h3>Información de Contacto</h3>
@@ -531,7 +566,7 @@
                 </div>
                 <div class="info-item">
                     <i class="fa-solid fa-envelope"></i>
-                    <span>contacto@construaraya.com</span>
+                    <span>arayamarvin48@gmail.com</span>
                 </div>
                 <div class="info-item">
                     <i class="fa-solid fa-location-dot"></i>
@@ -565,8 +600,22 @@
         <p>&copy; 2026 ConstruAraya. Todos los derechos reservados. Diseñado para profesionales de la construcción.</p>
     </footer>
 
-    <!-- SCRIPT WHATSAPP -->
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/50672693054?text=Hola,%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20ConstruAraya" class="whatsapp-flotante" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- SCRIPTS (AOS Y WHATSAPP FORM) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Inicializar las animaciones
+        AOS.init({
+            duration: 800, // Duración de la animación en milisegundos
+            once: true,    // La animación solo ocurre la primera vez que bajas
+            offset: 100    // Empieza a animar 100px antes de llegar al elemento
+        });
+
+        // Script del formulario de contacto
         function actualizarEnlace() {
             const numeroWhatsApp = "50672693054";
             const nombre = document.getElementById('nombre').value.trim();
